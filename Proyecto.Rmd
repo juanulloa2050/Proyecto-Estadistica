@@ -5,4 +5,15 @@ date: "2024-02-19"
 output: html_document
 ---
 
+```{r}
+library(readxl)
+Base_de_Datos_Encuesta_IA <- read_excel("Base de Datos Encuesta IA.xlsx")
+View(Base_de_Datos_Encuesta_IA)
+```
+
+
+```{r}
+summary(Base_de_Datos_Encuesta_IA)
+```
+
 
