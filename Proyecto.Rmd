@@ -1,0 +1,8 @@
+---
+title: "Proyecto"
+author: "Sebastian Ulloa, Juliana Amezquita, Juan David Hoyos, Laura Yepes"
+date: "2024-02-19"
+output: html_document
+---
+
+
