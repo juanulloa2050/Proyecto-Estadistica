@@ -16,4 +16,7 @@ View(Base_de_Datos_Encuesta_IA)
 summary(Base_de_Datos_Encuesta_IA)
 ```
 
+```{r}
+dvvrvegttrhbrthttr
+```
 
