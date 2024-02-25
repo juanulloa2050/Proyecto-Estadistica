@@ -9,20 +9,69 @@ output: html_document
 library(readxl)
 library(dplyr)
 library(cowplot)
+<<<<<<< HEAD
 library(ggplot2)
+=======
+library(stringr)
+>>>>>>> bb19587841bdf216ab1020cc2f2a4935c8ca63f5
 Base_de_Datos_Encuesta_IA <- read_excel("Base de Datos Encuesta IA.xlsx")
 View(Base_de_Datos_Encuesta_IA)
 ```
 
 ```{r}
+<<<<<<< HEAD
 pastel <- Base_de_Datos_Encuesta_IA %>% 
   count(carrera) %>% 
   mutate(pcnt = n / sum(n),
          etiquetas = scales::percent(pcnt),
          midangle = cumsum(pcnt) - pcnt / 2)
+=======
+summary(Base_de_Datos_Encuesta_IA)
+```
 
-colores <- c("#B22222","#FF3030","#EE2C2C","#CD2626","#8B1A1A","red3")
+Funciones
 
+```{r}
+crear_pastel <- function(Base_de_Datos_Encuesta_IA, variable) {
+  pastel <- Base_de_Datos_Encuesta_IA %>% 
+    count({{ variable }}) %>% 
+    mutate(pcnt = n / sum(n),
+           etiquetas = scales::percent(pcnt),
+           midangle = cumsum(pcnt) - pcnt / 2)
+  
+  colores <- c("#E066FF","#8B1A1A","#008B8B","#FF6A6A")
+  
+  pastel_plot <- ggplot(pastel, aes(x = 1, y = pcnt, fill = {{ variable }})) +
+    geom_bar(stat = "identity", color = "black") +
+    geom_text(aes(x = 1.2, y = pcnt, label = etiquetas),
+              position = position_stack(vjust = 0.5),
+              color = "white", size = 4,
+              angle = pastel$midangle) +
+    guides(fill = guide_legend(title = "Categorías")) +
+    coord_polar(theta = "y") + 
+    theme_void() +
+    theme(legend.position = "right")
+  
+  return(pastel_plot)
+}
+>>>>>>> bb19587841bdf216ab1020cc2f2a4935c8ca63f5
+
+crear_grafico_barras <- function(Base_de_Datos_Encuesta_IA, variable) {
+  colores <- c("#E066FF","#8B1A1A","#008B8B","#FF6A6A")
+  
+  bar <- ggplot(Base_de_Datos_Encuesta_IA, aes(x = {{ variable }})) +
+    geom_bar(stat="count", fill= "#E066FF", color='black') +
+    theme_cowplot() +
+    ylab("Frecuencia") +
+    xlab("Uso de gafas") +
+    ggtitle("¿Qué tan familiarizado estas con la inteligencia artificial? ") +
+    theme(axis.text.x = element_text(vjust = 1, hjust = 0.5)) +
+    scale_x_discrete(labels = function(x) str_wrap(x, width = 10))
+  
+  return(bar)
+}
+
+<<<<<<< HEAD
 pastel1 <- ggplot(pastel, aes(x = 1, y = pcnt, fill = carrera)) +
   geom_bar(stat = "identity", color = "black") +
   geom_text(aes(x = 1.2, y = pcnt, label = etiquetas),
@@ -51,30 +100,42 @@ bar <- ggplot(Base_de_Datos_Encuesta_IA, aes(x = carrera )) +
 bar
 ```
 
-```{r}
-pastel <- Base_de_Datos_Encuesta_IA %>% 
-  count(A) %>% 
-  mutate(pcnt = n / sum(n),
-         etiquetas = scales::percent(pcnt),
-         midangle = cumsum(pcnt) - pcnt / 2)
-
-colores <- c("#B22222","#FF3030","#EE2C2C","#CD2626","#8B1A1A","red3")
-
-pastel1 <- ggplot(pastel, aes(x = 1, y = pcnt, fill = A)) +
-  geom_bar(stat = "identity", color = "black") +
-  geom_text(aes(x = 1.2, y = pcnt, label = etiquetas),
-            position = position_stack(vjust = 0.5),
-            color = "white", size = 4,
-            angle = pastel$midangle) +
-  guides(fill = guide_legend(title = "Categorías")) +
-  scale_fill_manual(values = colores) +
-  coord_polar(theta = "y") + 
-  theme_void() +
-  theme(legend.position = "right") +
-  ggtitle("¿Qué tan familiarizado estas con la inteligencia artificial?")
-pastel1
+=======
 ```
 
+
+>>>>>>> bb19587841bdf216ab1020cc2f2a4935c8ca63f5
+```{r}
+crear_pastel(Base_de_Datos_Encuesta_IA, carrera)
+crear_grafico_barras(Base_de_Datos_Encuesta_IA, carrera)
+```
+
+```{r}
+crear_pastel(Base_de_Datos_Encuesta_IA, A)
+crear_grafico_barras(Base_de_Datos_Encuesta_IA, A)
+```
+
+<<<<<<< HEAD
+=======
+
+```{r}
+
+crear_pastel(Base_de_Datos_Encuesta_IA, B)
+crear_grafico_barras(Base_de_Datos_Encuesta_IA, B)
+
+```
+
+```{r}
+crear_pastel(Base_de_Datos_Encuesta_IA, C)
+crear_grafico_barras(Base_de_Datos_Encuesta_IA, C)
+```
+
+```{r}
+crear_pastel(Base_de_Datos_Encuesta_IA, D)
+crear_grafico_barras(Base_de_Datos_Encuesta_IA, D)
+```
+
+>>>>>>> bb19587841bdf216ab1020cc2f2a4935c8ca63f5
 **PREGUNTA 6**
 
 Estadisticos resultantes a partir de las respuestas:
