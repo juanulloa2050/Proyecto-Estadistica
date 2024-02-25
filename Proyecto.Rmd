@@ -11,12 +11,123 @@ Base_de_Datos_Encuesta_IA <- read_excel("Base de Datos Encuesta IA.xlsx")
 View(Base_de_Datos_Encuesta_IA)
 ```
 
-
 ```{r}
 summary(Base_de_Datos_Encuesta_IA)
 ```
 
-```{r}
-dvvrvegttrhbrthttr
+```         
 ```
 
+```{r}
+library(ggplot2)
+
+# Paso 3: Crear el gráfico de barras
+ggplot(Base_de_Datos_Encuesta_IA, aes(x = C)) +  # Especifica la columna que deseas en el eje x
+  geom_bar()
+```
+
+```{r}
+# Paso 3: Crear el gráfico de barras
+ggplot(Base_de_Datos_Encuesta_IA, aes(x = D)) +  # Especifica la columna que deseas en el eje x
+  geom_bar()
+```
+
+**PREGUNTA 6**
+
+Estadisticos resultantes a partir de las respuestas:
+
+```{r,warning = FALSE, message = FALSE}
+summary(Base_de_Datos_Encuesta_IA$F)
+```
+
+Tabla de Frecuencias Absolutas:
+
+```{r}
+frec.abs6<-table(Base_de_Datos_Encuesta_IA$F)
+frec.abs6
+```
+
+Tabla de Frecuencias relativas Porcentuales:
+
+```{r}
+n6 <- sum(frec.abs6)
+frec.rel6<-round(frec.abs6/n6,2)*100
+frec.rel6
+```
+
+```{r}
+ggplot(Base_de_Datos_Encuesta_IA, aes(x = F)) + 
+  geom_histogram(color = "black", fill = "blue", 
+                 bins = 6)+
+  xlab("Horas a la Semana")+
+  ylab("Frecuencia")+
+  ggtitle("Histograma")
+```
+
+**Conclusion:** Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+***PREGUNTA 7***
+
+Estadisticos resultantes a partir de la base de datos:
+```{r,warning = FALSE, message = FALSE}
+summary(Base_de_Datos_Encuesta_IA$G)
+```
+
+Tabla de Frecuencias Absolutas:
+
+```{r}
+frec.abs7<-table(Base_de_Datos_Encuesta_IA$G)
+frec.abs7
+```
+
+Tabla de Frecuencias relativas Porcentuales:
+
+```{r}
+n7 <- sum(frec.abs6)
+n7
+frec.rel7<-round(frec.abs7/n7,2)*100
+frec.rel7
+```
+
+```{r}
+ggplot(Base_de_Datos_Encuesta_IA, aes(x = G)) + 
+  geom_histogram(color = "black", fill = "pink", 
+                 bins = 6)+
+  xlab("Dinero en COP")+
+  ylab("Frecuencia")+
+  ggtitle("Dinero Gastado en dispossitivos con IA")
+```
+
+**Conclusion:** Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+***PREGUNTA 8***
+
+Estadisticos resultantes a partir de la base de datos:
+```{r,warning = FALSE, message = FALSE}
+summary(Base_de_Datos_Encuesta_IA$H)
+```
+
+Tabla de Frecuencias Absolutas:
+
+```{r}
+frec.abs7<-table(Base_de_Datos_Encuesta_IA$H)
+frec.abs7
+```
+
+Tabla de Frecuencias relativas Porcentuales:
+
+```{r}
+n7 <- sum(frec.abs6)
+n7
+frec.rel7<-round(frec.abs7/n7,2)*100
+frec.rel7
+```
+
+```{r}
+ggplot(Base_de_Datos_Encuesta_IA, aes(x = H)) + 
+  geom_bar(color = "black", fill = "gray", 
+                )+
+  xlab("Horas a la Semana")+
+  ylab("Frecuencia")+
+  ggtitle("Dinero Gastaso en (COP)")
+```
