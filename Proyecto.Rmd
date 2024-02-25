@@ -97,6 +97,14 @@ crear_grafico_barras(Base_de_Datos_Encuesta_IA, C)
 crear_pastel(Base_de_Datos_Encuesta_IA, D)
 crear_grafico_barras(Base_de_Datos_Encuesta_IA, D)
 ```
+```{r}
+ggplot(Base_de_Datos_Encuesta_IA, aes(x = E)) + 
+  geom_histogram(color = "black", fill = "blue", 
+                 bins = 8)+
+  xlab("Horas a la Semana")+
+  ylab("Frecuencia")+
+  ggtitle("Histograma")
+```
 
 
 **PREGUNTA 6**
