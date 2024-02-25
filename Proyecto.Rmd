@@ -7,6 +7,8 @@ output: html_document
 
 ```{r}
 library(readxl)
+library(dplyr)
+library(cowplot)
 Base_de_Datos_Encuesta_IA <- read_excel("Base de Datos Encuesta IA.xlsx")
 View(Base_de_Datos_Encuesta_IA)
 ```
@@ -15,7 +17,73 @@ View(Base_de_Datos_Encuesta_IA)
 summary(Base_de_Datos_Encuesta_IA)
 ```
 
-```         
+<<<<<<< HEAD
+```{r}
+pastel <- Base_de_Datos_Encuesta_IA %>% 
+  count(carrera) %>% 
+  mutate(pcnt = n / sum(n),
+         etiquetas = scales::percent(pcnt),
+         midangle = cumsum(pcnt) - pcnt / 2)
+
+colores <- c("#B22222","#FF3030","#EE2C2C","#CD2626","#8B1A1A","red3")
+
+pastel1 <- ggplot(pastel, aes(x = 1, y = pcnt, fill = carrera)) +
+  geom_bar(stat = "identity", color = "black") +
+  geom_text(aes(x = 1.2, y = pcnt, label = etiquetas),
+            position = position_stack(vjust = 0.5),
+            color = "white", size = 4,
+            angle = pastel$midangle) +
+  guides(fill = guide_legend(title = "Categorías")) +
+  scale_fill_manual(values = colores) +
+  coord_polar(theta = "y") + 
+  theme_void() +
+  theme(legend.position = "right") +
+  ggtitle("Carreras")
+pastel1
+
+bar <- ggplot(Base_de_Datos_Encuesta_IA, aes(x = carrera )) +
+  geom_bar(stat="count",fill="#8B1A1A",color='black')+
+  cowplot::theme_cowplot()+
+  geom_text(aes(label=..count..), stat='count', 
+            position=position_dodge(0.9), 
+            vjust=-0.5, 
+            size=3.0)+
+  ylab("Frecuencia") +
+  xlab("Uso de gafas")+
+  ggtitle("Número de estudiantes por respuesta sobre uso de gafas")
+bar
+```
+```{r}
+pastel <- Base_de_Datos_Encuesta_IA %>% 
+  count(A) %>% 
+  mutate(pcnt = n / sum(n),
+         etiquetas = scales::percent(pcnt),
+         midangle = cumsum(pcnt) - pcnt / 2)
+
+colores <- c("#B22222","#FF3030","#EE2C2C","#CD2626","#8B1A1A","red3")
+
+pastel1 <- ggplot(pastel, aes(x = 1, y = pcnt, fill = A)) +
+  geom_bar(stat = "identity", color = "black") +
+  geom_text(aes(x = 1.2, y = pcnt, label = etiquetas),
+            position = position_stack(vjust = 0.5),
+            color = "white", size = 4,
+            angle = pastel$midangle) +
+  guides(fill = guide_legend(title = "Categorías")) +
+  scale_fill_manual(values = colores) +
+  coord_polar(theta = "y") + 
+  theme_void() +
+  theme(legend.position = "right") +
+  ggtitle("¿Qué tan familiarizado estas con la inteligencia artificial?")
+pastel1
+```
+
+
+```{r}
+
+# Paso 3: Crear el gráfico de barras
+ggplot(Base_de_Datos_Encuesta_IA, aes(x = B)) +  # Especifica la columna que deseas en el eje x
+  geom_bar()
+>>>>>>> 023a61b0f7ffe8b85b2a43a5ca5ab2abf25e9929
 ```
 
 ```{r}
