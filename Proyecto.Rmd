@@ -59,40 +59,12 @@ crear_grafico_barras <- function(Base_de_Datos_Encuesta_IA, variable) {
     geom_bar(stat="count", fill= "#E066FF", color='black') +
     theme_cowplot() +
     ylab("Frecuencia") +
-    xlab("Uso de gafas") +
-    ggtitle("¿Qué tan familiarizado estas con la inteligencia artificial? ") +
     theme(axis.text.x = element_text(vjust = 1, hjust = 0.5)) +
     scale_x_discrete(labels = function(x) str_wrap(x, width = 10))
   
   return(bar)
 }
 
-pastel1 <- ggplot(pastel, aes(x = 1, y = pcnt, fill = carrera)) +
-  geom_bar(stat = "identity", color = "black") +
-  geom_text(aes(x = 1.2, y = pcnt, label = etiquetas),
-            position = position_stack(vjust = 0.5),
-            color = "white", size = 4,
-            angle = pastel$midangle) +
-  guides(fill = guide_legend(title = "Categorías")) +
-  scale_fill_manual(values = colores) +
-  coord_polar(theta = "y") + 
-  theme_void() +
-  theme(legend.position = "right") +
-  ggtitle("Carreras")
-pastel1
-
-
-bar <- ggplot(Base_de_Datos_Encuesta_IA, aes(x = carrera )) +
-  geom_bar(stat="count",fill="#8B1A1A",color='black')+
-  cowplot::theme_cowplot()+
-  geom_text(aes(label=..count..), stat='count', 
-            position=position_dodge(0.9), 
-            vjust=-0.5, 
-            size=3.0)+
-  ylab("Frecuencia") +
-  xlab("Ingenieria")+
-  ggtitle("Carrera de los Encuestados")
-bar
 ```
 
 
