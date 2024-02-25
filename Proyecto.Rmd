@@ -16,4 +16,35 @@ View(Base_de_Datos_Encuesta_IA)
 summary(Base_de_Datos_Encuesta_IA)
 ```
 
+```{r}
+library(ggplot2)
 
+# Paso 3: Crear el gráfico de barras
+ggplot(Base_de_Datos_Encuesta_IA, aes(x = B)) +  # Especifica la columna que deseas en el eje x
+  geom_bar()
+```
+
+```{r}
+library(ggplot2)
+
+# Paso 3: Crear el gráfico de barras
+ggplot(Base_de_Datos_Encuesta_IA, aes(x = C)) +  # Especifica la columna que deseas en el eje x
+  geom_bar()
+```
+
+
+```{r}
+library(ggplot2)
+
+# Paso 3: Crear el gráfico de barras
+ggplot(Base_de_Datos_Encuesta_IA, aes(x = D)) +  # Especifica la columna que deseas en el eje x
+  geom_bar()
+```
+
+```{r}
+library(ggplot2)
+
+# Paso 3: Crear el gráfico de barras
+ggplot(Base_de_Datos_Encuesta_IA, aes(x = E)) +  # Especifica la columna que deseas en el eje x
+  geom_bar()
+```
