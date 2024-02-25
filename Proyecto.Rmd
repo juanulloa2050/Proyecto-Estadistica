@@ -9,23 +9,19 @@ output: html_document
 library(readxl)
 library(dplyr)
 library(cowplot)
-<<<<<<< HEAD
 library(ggplot2)
-=======
 library(stringr)
->>>>>>> bb19587841bdf216ab1020cc2f2a4935c8ca63f5
+
 Base_de_Datos_Encuesta_IA <- read_excel("Base de Datos Encuesta IA.xlsx")
 View(Base_de_Datos_Encuesta_IA)
 ```
 
 ```{r}
-<<<<<<< HEAD
 pastel <- Base_de_Datos_Encuesta_IA %>% 
   count(carrera) %>% 
   mutate(pcnt = n / sum(n),
          etiquetas = scales::percent(pcnt),
          midangle = cumsum(pcnt) - pcnt / 2)
-=======
 summary(Base_de_Datos_Encuesta_IA)
 ```
 
@@ -54,7 +50,7 @@ crear_pastel <- function(Base_de_Datos_Encuesta_IA, variable) {
   
   return(pastel_plot)
 }
->>>>>>> bb19587841bdf216ab1020cc2f2a4935c8ca63f5
+
 
 crear_grafico_barras <- function(Base_de_Datos_Encuesta_IA, variable) {
   colores <- c("#E066FF","#8B1A1A","#008B8B","#FF6A6A")
@@ -71,7 +67,6 @@ crear_grafico_barras <- function(Base_de_Datos_Encuesta_IA, variable) {
   return(bar)
 }
 
-<<<<<<< HEAD
 pastel1 <- ggplot(pastel, aes(x = 1, y = pcnt, fill = carrera)) +
   geom_bar(stat = "identity", color = "black") +
   geom_text(aes(x = 1.2, y = pcnt, label = etiquetas),
@@ -100,11 +95,9 @@ bar <- ggplot(Base_de_Datos_Encuesta_IA, aes(x = carrera )) +
 bar
 ```
 
-=======
-```
 
 
->>>>>>> bb19587841bdf216ab1020cc2f2a4935c8ca63f5
+
 ```{r}
 crear_pastel(Base_de_Datos_Encuesta_IA, carrera)
 crear_grafico_barras(Base_de_Datos_Encuesta_IA, carrera)
@@ -115,8 +108,6 @@ crear_pastel(Base_de_Datos_Encuesta_IA, A)
 crear_grafico_barras(Base_de_Datos_Encuesta_IA, A)
 ```
 
-<<<<<<< HEAD
-=======
 
 ```{r}
 
@@ -135,7 +126,7 @@ crear_pastel(Base_de_Datos_Encuesta_IA, D)
 crear_grafico_barras(Base_de_Datos_Encuesta_IA, D)
 ```
 
->>>>>>> bb19587841bdf216ab1020cc2f2a4935c8ca63f5
+
 **PREGUNTA 6**
 
 Estadisticos resultantes a partir de las respuestas:
