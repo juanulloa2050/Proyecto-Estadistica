@@ -9,15 +9,11 @@ output: html_document
 library(readxl)
 library(dplyr)
 library(cowplot)
+library(ggplot2)
 Base_de_Datos_Encuesta_IA <- read_excel("Base de Datos Encuesta IA.xlsx")
 View(Base_de_Datos_Encuesta_IA)
 ```
 
-```{r}
-summary(Base_de_Datos_Encuesta_IA)
-```
-
-<<<<<<< HEAD
 ```{r}
 pastel <- Base_de_Datos_Encuesta_IA %>% 
   count(carrera) %>% 
@@ -41,6 +37,7 @@ pastel1 <- ggplot(pastel, aes(x = 1, y = pcnt, fill = carrera)) +
   ggtitle("Carreras")
 pastel1
 
+
 bar <- ggplot(Base_de_Datos_Encuesta_IA, aes(x = carrera )) +
   geom_bar(stat="count",fill="#8B1A1A",color='black')+
   cowplot::theme_cowplot()+
@@ -49,10 +46,11 @@ bar <- ggplot(Base_de_Datos_Encuesta_IA, aes(x = carrera )) +
             vjust=-0.5, 
             size=3.0)+
   ylab("Frecuencia") +
-  xlab("Uso de gafas")+
-  ggtitle("Número de estudiantes por respuesta sobre uso de gafas")
+  xlab("Ingenieria")+
+  ggtitle("Carrera de los Encuestados")
 bar
 ```
+
 ```{r}
 pastel <- Base_de_Datos_Encuesta_IA %>% 
   count(A) %>% 
@@ -75,29 +73,6 @@ pastel1 <- ggplot(pastel, aes(x = 1, y = pcnt, fill = A)) +
   theme(legend.position = "right") +
   ggtitle("¿Qué tan familiarizado estas con la inteligencia artificial?")
 pastel1
-```
-
-
-```{r}
-
-# Paso 3: Crear el gráfico de barras
-ggplot(Base_de_Datos_Encuesta_IA, aes(x = B)) +  # Especifica la columna que deseas en el eje x
-  geom_bar()
->>>>>>> 023a61b0f7ffe8b85b2a43a5ca5ab2abf25e9929
-```
-
-```{r}
-library(ggplot2)
-
-# Paso 3: Crear el gráfico de barras
-ggplot(Base_de_Datos_Encuesta_IA, aes(x = C)) +  # Especifica la columna que deseas en el eje x
-  geom_bar()
-```
-
-```{r}
-# Paso 3: Crear el gráfico de barras
-ggplot(Base_de_Datos_Encuesta_IA, aes(x = D)) +  # Especifica la columna que deseas en el eje x
-  geom_bar()
 ```
 
 **PREGUNTA 6**
@@ -137,6 +112,7 @@ ggplot(Base_de_Datos_Encuesta_IA, aes(x = F)) +
 ***PREGUNTA 7***
 
 Estadisticos resultantes a partir de la base de datos:
+
 ```{r,warning = FALSE, message = FALSE}
 summary(Base_de_Datos_Encuesta_IA$G)
 ```
@@ -163,7 +139,14 @@ ggplot(Base_de_Datos_Encuesta_IA, aes(x = G)) +
                  bins = 6)+
   xlab("Dinero en COP")+
   ylab("Frecuencia")+
+  scale_x_continuous(labels=function(n){format(n, scientific = FALSE)})
   ggtitle("Dinero Gastado en dispossitivos con IA")
+```
+
+```{r}
+cajabigotes<- ggplot(Base_de_Datos_Encuesta_IA, aes(x=G, y=0))+
+  geom_boxplot(color="black",fill="red")
+cajabigotes
 ```
 
 **Conclusion:** Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -171,6 +154,7 @@ ggplot(Base_de_Datos_Encuesta_IA, aes(x = G)) +
 ***PREGUNTA 8***
 
 Estadisticos resultantes a partir de la base de datos:
+
 ```{r,warning = FALSE, message = FALSE}
 summary(Base_de_Datos_Encuesta_IA$H)
 ```
@@ -178,24 +162,102 @@ summary(Base_de_Datos_Encuesta_IA$H)
 Tabla de Frecuencias Absolutas:
 
 ```{r}
-frec.abs7<-table(Base_de_Datos_Encuesta_IA$H)
-frec.abs7
+frec.abs8<-table(Base_de_Datos_Encuesta_IA$H)
+frec.abs8
 ```
 
 Tabla de Frecuencias relativas Porcentuales:
 
 ```{r}
-n7 <- sum(frec.abs6)
-n7
-frec.rel7<-round(frec.abs7/n7,2)*100
-frec.rel7
+n8 <- sum(frec.abs8)
+n8
+frec.rel8<-round(frec.abs8/n7,2)*100
+frec.rel8
 ```
 
 ```{r}
-ggplot(Base_de_Datos_Encuesta_IA, aes(x = H)) + 
-  geom_bar(color = "black", fill = "gray", 
-                )+
-  xlab("Horas a la Semana")+
+bar <- ggplot(Base_de_Datos_Encuesta_IA, aes(x = H )) +
+  geom_bar(stat="count",fill="cyan",color='black')+
+  cowplot::theme_cowplot()+
+  geom_text(aes(label=..count..), stat='count', 
+            position=position_dodge(0.9), 
+            vjust=-0.5, 
+            size=3.0)+
+  ylab("Frecuencia") +
+  xlab("No. de veces X 10 Trabajos")+
+  ggtitle("Trabajos Utlizando IA")
+bar
+```
+
+**Conclusion:** Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+***PREGUNTA 9***
+
+Estadisticos resultantes a partir de la base de datos:
+
+```{r,warning = FALSE, message = FALSE}
+summary(Base_de_Datos_Encuesta_IA$I)
+```
+
+Tabla de Frecuencias Absolutas:
+
+```{r}
+frec.abs9<-table(Base_de_Datos_Encuesta_IA$I)
+frec.abs9
+```
+
+Tabla de Frecuencias relativas Porcentuales:
+
+```{r}
+n9 <- sum(frec.abs9)
+n9
+frec.rel9<-round(frec.abs9/n9,2)*100
+frec.rel9
+```
+
+```{r}
+bar <- ggplot(Base_de_Datos_Encuesta_IA, aes(x = I )) +
+  geom_bar(stat="count",fill="cyan",color='black')+
+  cowplot::theme_cowplot()+
+  geom_text(aes(label=..count..), stat='count', 
+            position=position_dodge(0.9), 
+            vjust=-0.5, 
+            size=3.0)+
+  ylab("Frecuencia") +
+  xlab("No. de Participaciones")+
+  ggtitle("Participaciones en Eventos de IA")
+bar
+```
+
+**Conclusion:** Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+***PREGUNTA 10*** Estadisticos resultantes a partir de la base de datos:
+
+```{r,warning = FALSE, message = FALSE}
+summary(Base_de_Datos_Encuesta_IA$I)
+```
+
+Tabla de Frecuencias Absolutas:
+
+```{r}
+frec.abs10<-table(Base_de_Datos_Encuesta_IA$J)
+frec.abs10
+```
+
+Tabla de Frecuencias relativas Porcentuales:
+
+```{r}
+n10 <- sum(frec.abs10)
+n10
+frec.rel10<-round(frec.abs10/n10,2)*100
+frec.rel10
+```
+
+```{r}
+ggplot(Base_de_Datos_Encuesta_IA, aes(x = J)) + 
+  geom_histogram(color = "black", fill = "green", 
+                 bins = 7)+
+  xlab("Cantidad de Profesores / semestre")+
   ylab("Frecuencia")+
-  ggtitle("Dinero Gastaso en (COP)")
+  ggtitle("Incentivo en el uso de IA")
 ```
