@@ -25,7 +25,7 @@ library(dplyr)
 library(cowplot)
 library(ggplot2)
 library(stringr)
-library(Grafica)
+
 Base_de_Datos_Encuesta_IA <- read_excel("Base de Datos Encuesta IA.xlsx")
 View(Base_de_Datos_Encuesta_IA)
 ```
