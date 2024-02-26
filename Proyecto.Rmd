@@ -11,21 +11,12 @@ library(dplyr)
 library(cowplot)
 library(ggplot2)
 library(stringr)
-
+library(Grafica)
 Base_de_Datos_Encuesta_IA <- read_excel("Base de Datos Encuesta IA.xlsx")
 View(Base_de_Datos_Encuesta_IA)
 ```
 
-```{r}
-pastel <- Base_de_Datos_Encuesta_IA %>% 
-  count(carrera) %>% 
-  mutate(pcnt = n / sum(n),
-         etiquetas = scales::percent(pcnt),
-         midangle = cumsum(pcnt) - pcnt / 2)
-summary(Base_de_Datos_Encuesta_IA)
-```
-
-Funciones
+Funciones:
 
 ```{r}
 crear_pastel <- function(Base_de_Datos_Encuesta_IA, variable) {
@@ -69,17 +60,23 @@ crear_grafico_barras <- function(Base_de_Datos_Encuesta_IA, variable) {
 
 
 
+Carrera estudiada por la poblacion encuestada:
 
 ```{r}
 crear_pastel(Base_de_Datos_Encuesta_IA, carrera)
 crear_grafico_barras(Base_de_Datos_Encuesta_IA, carrera)
 ```
 
+A ¿Qué tan familiarizado estas con la inteligencia artificial? 
+
 ```{r}
 crear_pastel(Base_de_Datos_Encuesta_IA, A)
 crear_grafico_barras(Base_de_Datos_Encuesta_IA, A)
 ```
 
+La información proporcionada revela un nivel considerable de familiaridad y participación entre los estudiantes de ingeniería en relación con las Inteligencias Artificiales (IA). El hecho de que el 56% de estos estudiantes tengan nociones sobre las IA sugiere que la temática forma parte integral de los programas académicos de ingeniería, lo que refleja la importancia que se otorga a este campo emergente. Asimismo 24% de los estudiantes de ingeniería utiliza las IA a diario. Esta cifra indica una aplicación práctica de estas tecnologías en el día a día de los estudiantes. Además el 12% que tiene conocimiento sobre las IAs pero no las emplea podría estar representando a aquellos que, aunque entienden el concepto, aún no han encontrado aplicaciones específicas en sus actividades diarias o académicas.  Por otro lado, el 2% que no está familiarizado con las IAs, esto puede ser porque no se les han promovido o no saben como emplearlas en su diario vivir. 
+
+B ¿Cuál es el ayudante de búsqueda guiado por inteligencia artificial de tu preferencia? 
 
 ```{r}
 
@@ -87,16 +84,28 @@ crear_pastel(Base_de_Datos_Encuesta_IA, B)
 crear_grafico_barras(Base_de_Datos_Encuesta_IA, B)
 
 ```
+La información revela que la mayoría de las personas recurren a ChatGPT como su principal asistente de búsqueda guiado por inteligencia artificial, siendo estos el 84% de los encuestados quienes eligen esta opción. Asimismo, se destaca que un 8% de los participantes prefieren emplear Bing Copilot como su principal asistente, indicando una presencia notable aunque menor en comparación con ChatGPT. Además, se identifica que otro 8% de los encuestados opta por otras Inteligencias Artificiales como Aria o Bard como sus principales ayudantes de búsqueda. Esta diversificación en la elección de asistentes sugiere que la competencia entre los distintos asistentes de inteligencia artificial.
+
+C ¿Cuál es el aspecto o campo de la ingeniería donde más te apoyas en la Inteligencia Artificial?
 
 ```{r}
 crear_pastel(Base_de_Datos_Encuesta_IA, C)
 crear_grafico_barras(Base_de_Datos_Encuesta_IA, C)
 ```
+La información recopilada revela que el 68% de los participantes en la encuesta utiliza la inteligencia artificial (IA) como herramienta para comprender conceptos teóricos. Adicionalmente, un 12% de los encuestados emplea la IA en el proceso de diseño de proyectos, lo que indica una aplicación práctica de esta tecnología en el ámbito creativo y de desarrollo. Otro 12% de los participantes utiliza la IA para programar, evidenciando la versatilidad de estas herramientas en el ámbito de la programación y desarrollo de software. Finalmente, un 8% de los encuestados emplea la inteligencia artificial específicamente para actividades matemáticas y cálculos. 
+
+
+D  De 1 a 10. ¿Qué tan seguido empleas herramientas de IA como proveedores de datos para tu formación profesional sin revisar la referencia o fuente de su afirmación? (Siendo 10 ¨Nunca reviso¨ y 0 ´´Siempre reviso´´).
 
 ```{r}
 crear_pastel(Base_de_Datos_Encuesta_IA, D)
 crear_grafico_barras(Base_de_Datos_Encuesta_IA, D)
 ```
+
+En el análisis de esta pregunta, se ha optado por clasificar las respuestas en tres categorías: "siempre" para aquellos que respondieron de 0 a 2, "medianamente" para los que respondieron de 3 a 7, y "nunca" para aquellos que respondieron de 8 a 10. Los resultados indican que el 12% de los encuestados emplea herramientas de inteligencia artificial como proveedores de datos para su formación profesional sin revisar la referencia o fuente de su afirmación, evidenciando una cierta confianza en la información proporcionada por estas herramientas. En contraste, el 68% de los participantes se encuentra en la categoría de respuesta "medianamente", lo que sugiere que la mayoría de los encuestados adopta una postura intermedia en términos de confianza hacia las herramientas de IA como fuentes de datos para su formación profesional. Este grupo parece estar dispuesto a utilizar dichas herramientas, pero con cierto grado de cautela y posiblemente validación de las referencias. Por último, el 20% de los encuestados se encuentra en la categoría "nunca", indicando que no confían en utilizar herramientas de IA como proveedores de datos para su formación profesional sin revisar la referencia o fuente de su afirmación. Este segmento muestra una preferencia por fuentes más tradicionales o rigurosas al buscar información relacionada con su formación.
+
+E ¿Qué tan alto consideras el porcentaje de acierto y confiabilidad atribuído a la Inteligencia Artificial para el diseño y solución de problemas en ingeniería? 
+
 ```{r}
 ggplot(Base_de_Datos_Encuesta_IA, aes(x = E)) + 
   geom_histogram(color = "black", fill = "blue", 
@@ -106,6 +115,7 @@ ggplot(Base_de_Datos_Encuesta_IA, aes(x = E)) +
   ggtitle("Histograma")
 ```
 
+En el análisis de esta pregunta, se ha adoptado una clasificación basada en cinco rangos, desde el 10-25%, 25-40%, 40-55%, 55-70%, hasta 70-85%. Los resultados revelan una variedad de percepciones entre los encuestados acerca de la eficacia y confiabilidad de las Inteligencias Artificiales (IAs) en el diseño y solución de problemas en ingeniería. Un 8% de los participantes, pertenecientes al rango del 10-25%, expresan la opinión de que las IAs no tienen un buen porcentaje de acierto y confiabilidad en estas tareas. Este grupo evidencia una cierta desconfianza o escepticismo hacia la efectividad de las IAs en el ámbito de la ingeniería. Otro 8%, ubicado en el rango del 25-40%, considera medianamente ineficaces a las IAs en el diseño y solución de problemas en ingeniería. Esto indica una percepción intermedia en términos de confiabilidad, sugiriendo que este segmento de encuestados no descarta por completo la utilidad de las IAs, pero aún tiene reservas sobre su eficacia. Por otro lado, el 16%, correspondiente al rango del 40-55%, percibe las IAs como medianamente confiables en estas tareas de ingeniería. Esta perspectiva indica una disposición a confiar en cierta medida en las capacidades de las IAs, aunque con ciertas reservas. El grupo más numeroso, constituido por el 52%, perteneciente al rango del 55-70%, sostiene que las IAs son confiables y poseen un alto porcentaje de acierto en el diseño y solución de problemas en ingeniería. Este resultado refleja una percepción positiva y una fuerte confianza en la eficacia de las IAs en el ámbito ingenieril. Finalmente, un 4%, en la categoría del 70-85%, considera que las IAs son muy confiables en estas tareas. Este grupo representa una minoría que tiene una percepción extremadamente positiva sobre la confiabilidad de las IAs en el ámbito específico de la ingeniería.
 
 **PREGUNTA 6**
 
