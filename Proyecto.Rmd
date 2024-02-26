@@ -1,9 +1,23 @@
 ---
-title: "Proyecto"
+title: "PROYECTO: Probabilidad y Estadistica"
 author: "Sebastian Ulloa, Juliana Amezquita, Juan David Hoyos, Laura Yepes"
 date: "2024-02-19"
 output: html_document
 ---
+
+**Objetivo:**
+
+Evaluar las implicaciones a nivel académico y formativo de las herramientas de Inteligencia artificial en los estudiantes de ingeniería, a raíz de la ética y buen manejo de la tecnología como alternativas de solución que respalden los conocimientos y habilidades básicas previamente desarrolladas durante el crecimiento profesional. Con un posterior análisis de los comportamientos y adaptaciones tanto positivas cómo negativas que se adquieren tras la implementación de dichos recursos en el sistema educativo (universidad), así como en la metodología personal a la hora de producir y ejercer el pensamiento crítico en busca de mayor eficiencia y rapidez.
+
+**Justificación del problema:**
+
+El avance tecnológico, social e industrial se preocupa por la educación y formación de nuevos ingenieros con capacidades de solución y diseño de nuevas alternativas bajo el aprovechamiento de los recursos disponibles por medio de herramientas digitales impulsadas con IA. Volviendo importante el hecho de contrastar correctamente las habilidades de aprendizaje propias de una persona con la agilidad y capacidad de análisis lógico que puede ofrecer la tecnología. De manera que se debe considerar una estrategia adicional utilizada de forma consciente desde las etapas iniciales de la ingeniería sin caer en excesos y/o sesgos de criterio.
+
+Es por ello que es fundamental reconocer las ventajas y desventajas en torno a la utilización de IA con fines académicos e innovación según la tendencia y confianza dadas por los usuarios. Teniendo en cuenta la pérdida de habilidad o criterio por el exceso de procesamiento con IA a la hora de diseñar un proyecto o prototipo característico en este tipo de profesiones.
+
+**Población objetivo:** Estudiantes y miembros de la facultad de Ingeniería.
+
+**Tamaño de la muestra:** 25 Estudiantes encuestados de forma aleatoria no probabilística.
 
 ```{r}
 library(readxl)
@@ -15,6 +29,7 @@ library(Grafica)
 Base_de_Datos_Encuesta_IA <- read_excel("Base de Datos Encuesta IA.xlsx")
 View(Base_de_Datos_Encuesta_IA)
 ```
+
 
 Funciones:
 
@@ -58,25 +73,31 @@ crear_grafico_barras <- function(Base_de_Datos_Encuesta_IA, variable) {
 
 ```
 
-
-
 Carrera estudiada por la poblacion encuestada:
+
 
 ```{r}
 crear_pastel(Base_de_Datos_Encuesta_IA, carrera)
 crear_grafico_barras(Base_de_Datos_Encuesta_IA, carrera)
 ```
 
-A ¿Qué tan familiarizado estas con la inteligencia artificial? 
+
+
+# PREGUNTA 1.
+¿Qué tan familiarizado estas con la inteligencia artificial? 
+
 
 ```{r}
 crear_pastel(Base_de_Datos_Encuesta_IA, A)
 crear_grafico_barras(Base_de_Datos_Encuesta_IA, A)
 ```
 
+
 La información proporcionada revela un nivel considerable de familiaridad y participación entre los estudiantes de ingeniería en relación con las Inteligencias Artificiales (IA). El hecho de que el 56% de estos estudiantes tengan nociones sobre las IA sugiere que la temática forma parte integral de los programas académicos de ingeniería, lo que refleja la importancia que se otorga a este campo emergente. Asimismo 24% de los estudiantes de ingeniería utiliza las IA a diario. Esta cifra indica una aplicación práctica de estas tecnologías en el día a día de los estudiantes. Además el 12% que tiene conocimiento sobre las IAs pero no las emplea podría estar representando a aquellos que, aunque entienden el concepto, aún no han encontrado aplicaciones específicas en sus actividades diarias o académicas.  Por otro lado, el 2% que no está familiarizado con las IAs, esto puede ser porque no se les han promovido o no saben como emplearlas en su diario vivir. 
 
-B ¿Cuál es el ayudante de búsqueda guiado por inteligencia artificial de tu preferencia? 
+# PREGUNTA 2.
+
+¿Cuál es el ayudante de búsqueda guiado por inteligencia artificial de tu preferencia? 
 
 ```{r}
 
@@ -86,7 +107,10 @@ crear_grafico_barras(Base_de_Datos_Encuesta_IA, B)
 ```
 La información revela que la mayoría de las personas recurren a ChatGPT como su principal asistente de búsqueda guiado por inteligencia artificial, siendo estos el 84% de los encuestados quienes eligen esta opción. Asimismo, se destaca que un 8% de los participantes prefieren emplear Bing Copilot como su principal asistente, indicando una presencia notable aunque menor en comparación con ChatGPT. Además, se identifica que otro 8% de los encuestados opta por otras Inteligencias Artificiales como Aria o Bard como sus principales ayudantes de búsqueda. Esta diversificación en la elección de asistentes sugiere que la competencia entre los distintos asistentes de inteligencia artificial.
 
-C ¿Cuál es el aspecto o campo de la ingeniería donde más te apoyas en la Inteligencia Artificial?
+
+# PREGUNTA 3.
+
+¿Cuál es el aspecto o campo de la ingeniería donde más te apoyas en la Inteligencia Artificial?
 
 ```{r}
 crear_pastel(Base_de_Datos_Encuesta_IA, C)
@@ -97,27 +121,76 @@ La información recopilada revela que el 68% de los participantes en la encuesta
 
 D  De 1 a 10. ¿Qué tan seguido empleas herramientas de IA como proveedores de datos para tu formación profesional sin revisar la referencia o fuente de su afirmación? (Siendo 10 ¨Nunca reviso¨ y 0 ´´Siempre reviso´´).
 
+# PREGUNTA 4.
+
 ```{r}
 crear_pastel(Base_de_Datos_Encuesta_IA, D)
 crear_grafico_barras(Base_de_Datos_Encuesta_IA, D)
 ```
 
+
 En el análisis de esta pregunta, se ha optado por clasificar las respuestas en tres categorías: "siempre" para aquellos que respondieron de 0 a 2, "medianamente" para los que respondieron de 3 a 7, y "nunca" para aquellos que respondieron de 8 a 10. Los resultados indican que el 12% de los encuestados emplea herramientas de inteligencia artificial como proveedores de datos para su formación profesional sin revisar la referencia o fuente de su afirmación, evidenciando una cierta confianza en la información proporcionada por estas herramientas. En contraste, el 68% de los participantes se encuentra en la categoría de respuesta "medianamente", lo que sugiere que la mayoría de los encuestados adopta una postura intermedia en términos de confianza hacia las herramientas de IA como fuentes de datos para su formación profesional. Este grupo parece estar dispuesto a utilizar dichas herramientas, pero con cierto grado de cautela y posiblemente validación de las referencias. Por último, el 20% de los encuestados se encuentra en la categoría "nunca", indicando que no confían en utilizar herramientas de IA como proveedores de datos para su formación profesional sin revisar la referencia o fuente de su afirmación. Este segmento muestra una preferencia por fuentes más tradicionales o rigurosas al buscar información relacionada con su formación.
 
 E ¿Qué tan alto consideras el porcentaje de acierto y confiabilidad atribuído a la Inteligencia Artificial para el diseño y solución de problemas en ingeniería? 
 
-```{r}
-ggplot(Base_de_Datos_Encuesta_IA, aes(x = E)) + 
-  geom_histogram(color = "black", fill = "blue", 
-                 bins = 8)+
-  xlab("Horas a la Semana")+
-  ylab("Frecuencia")+
-  ggtitle("Histograma")
+# PREGUNTA 5.
+
+**¿Qué tan alto consideras el porcentaje de acierto y confiabilidad atribuido a la Inteligencia Artificial para el diseño y solución de problemas en ingeniería?**
+
+Estadisticos y medidas de tendencia central resultantes a partir de las respuestas:
+
+```{r,warning = FALSE, message = FALSE}
+summary(Base_de_Datos_Encuesta_IA$E)
 ```
+
+Tabla de Frecuencias Absolutas:
+
+```{r}
+frec.abs5<-table(Base_de_Datos_Encuesta_IA$E)
+frec.abs5
+```
+
+Tabla de Frecuencias relativas Porcentuales:
+
+```{r}
+n5 <- sum(frec.abs5)
+frec.rel5<-round(frec.abs5/n5,2)*100
+frec.rel5
+```
+
+Tabla de Frecuencias Acumuladas porcentuales:
+
+```{r}
+abfreq5<-cumsum(frec.rel5)
+abfreq5
+```
+
+```{r}
+hist(Base_de_Datos_Encuesta_IA$E, freq = TRUE, xlab = "Porcentaje (%)", ylab = "Frequencia",col = c("red", "orange", "yellow", "lightblue","lightgreen" , "green","purple"), main = "Confianza en la IA",ylim = c(0,10))
+```
+
+Analisis de Dispersion:
+
+```{r}
+sd(frec.abs5)
+```
+
+```{r}
+cajabigotes<- ggplot(Base_de_Datos_Encuesta_IA, aes(x=E, y=0))+
+  geom_boxplot(color="black",fill="orange")+
+  xlab("Porcentaje (%)")
+cajabigotes
+```
+
 
 En el análisis de esta pregunta, se ha adoptado una clasificación basada en cinco rangos, desde el 10-25%, 25-40%, 40-55%, 55-70%, hasta 70-85%. Los resultados revelan una variedad de percepciones entre los encuestados acerca de la eficacia y confiabilidad de las Inteligencias Artificiales (IAs) en el diseño y solución de problemas en ingeniería. Un 8% de los participantes, pertenecientes al rango del 10-25%, expresan la opinión de que las IAs no tienen un buen porcentaje de acierto y confiabilidad en estas tareas. Este grupo evidencia una cierta desconfianza o escepticismo hacia la efectividad de las IAs en el ámbito de la ingeniería. Otro 8%, ubicado en el rango del 25-40%, considera medianamente ineficaces a las IAs en el diseño y solución de problemas en ingeniería. Esto indica una percepción intermedia en términos de confiabilidad, sugiriendo que este segmento de encuestados no descarta por completo la utilidad de las IAs, pero aún tiene reservas sobre su eficacia. Por otro lado, el 16%, correspondiente al rango del 40-55%, percibe las IAs como medianamente confiables en estas tareas de ingeniería. Esta perspectiva indica una disposición a confiar en cierta medida en las capacidades de las IAs, aunque con ciertas reservas. El grupo más numeroso, constituido por el 52%, perteneciente al rango del 55-70%, sostiene que las IAs son confiables y poseen un alto porcentaje de acierto en el diseño y solución de problemas en ingeniería. Este resultado refleja una percepción positiva y una fuerte confianza en la eficacia de las IAs en el ámbito ingenieril. Finalmente, un 4%, en la categoría del 70-85%, considera que las IAs son muy confiables en estas tareas. Este grupo representa una minoría que tiene una percepción extremadamente positiva sobre la confiabilidad de las IAs en el ámbito específico de la ingeniería.
 
-**PREGUNTA 6**
+**Conclusion:** El histograma evidencia como la mayoria de los estudiantes de ingenieria de la muestra tienen un buen nivel de confianza en la Inteligencia Artificial, donde un 68% de los encuestados le atribuyen un valor de certeza superior al 50%. De hecho el promedio y mediana indican respectivamente un 58.36% y 60% de seguridad con una baja desviacion promedio de los datos de tan solo 2.15%. Es decir que la mayoria de sensaciones y comentarios respecto al tema mantienen una misma tendencia positiva fuera de dos casos atipicos donde se tienen respuestas con valores menores al 20%; avisando asi de una minoria con casi absoluta desconfianza por el uso academico aplicado para este tipo de tecnologia.
+
+# PREGUNTA 6.
+
+
+**¿Cuántas horas a la semana dedicas a la actualización y mejora de tus habilidades en inteligencia artificial, como la participación en cursos en línea o la lectura de material especializado?**
 
 Estadisticos resultantes a partir de las respuestas:
 
@@ -142,16 +215,24 @@ frec.rel6
 
 ```{r}
 ggplot(Base_de_Datos_Encuesta_IA, aes(x = F)) + 
-  geom_histogram(color = "black", fill = "blue", 
+  geom_histogram(color = "black", fill = "turquoise", 
                  bins = 6)+
   xlab("Horas a la Semana")+
   ylab("Frecuencia")+
   ggtitle("Histograma")
 ```
 
-**Conclusion:** Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Analisis de Dispersion:
 
-***PREGUNTA 7***
+```{r}
+sd(frec.abs6)
+```
+
+**Conclusion:** Los datos muestran que el 52% de los encuestados optan por abstenerse de leer artículos y realizar cursos sobre inteligencia artificial o gastar menos de una hora en estas actividades. Por otro lado, el 12% dedica entre 4 y 5 horas a mejorar sus habilidades en estas herramientas, mientras que el 36% restante prefiere invertir entre 1 y 2 horas. Esto sugiere que, en la actualidad, la mayoría de los estudiantes de ingeniería pueden tener intereses y compromisos diversos que compiten con el tiempo dedicado a mejorar sus habilidades en inteligencia artificial. Algunos pueden estar más enfocados en otras áreas de estudio o actividades, mientras que otros podrían estar más abiertos a explorar y profundizar en la IA, como lo demuestra el grupo dispuesto a invertir más tiempo en estas actividades.
+
+# PREGUNTA 7.
+
+**¿Qué tanto dinero has gastado en dispositivos inteligentes (Celular,computador, tableta, etc.…) para tu formación académica y uso diario?**
 
 Estadisticos resultantes a partir de la base de datos:
 
@@ -175,25 +256,31 @@ frec.rel7<-round(frec.abs7/n7,2)*100
 frec.rel7
 ```
 
+Tabla de Frecuencias Acumuladas porcentuales:
+
 ```{r}
-ggplot(Base_de_Datos_Encuesta_IA, aes(x = G)) + 
-  geom_histogram(color = "black", fill = "pink", 
-                 bins = 6)+
-  xlab("Dinero en COP")+
-  ylab("Frecuencia")+
-  scale_x_continuous(labels=function(n){format(n, scientific = FALSE)})
-  ggtitle("Dinero Gastado en dispossitivos con IA")
+abfreq7<-cumsum(frec.rel7)
+abfreq7
+```
+
+```{r}
+hist(Base_de_Datos_Encuesta_IA$G, freq = TRUE, xlab = "Dinero en COP", ylab = "Frequencia",col = c("red", "orange", "yellow", "lightblue","lightgreen" , "green","purple"), main = "Dinero Invertido en Dispositivos con IA",ylim = c(0,10))
 ```
 
 ```{r}
 cajabigotes<- ggplot(Base_de_Datos_Encuesta_IA, aes(x=G, y=0))+
-  geom_boxplot(color="black",fill="red")
+  geom_boxplot(color="black",fill="orange")+
+  xlab("Dinero en COP")+
+  scale_x_continuous(labels=function(n){format(n, scientific = FALSE)})
+
 cajabigotes
 ```
 
-**Conclusion:** Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+**Conclusion:** De acuerdo a los datos, es posible concluir que el 52% de los encuestados prefiere gastar entre 4 millones y 6 millones doscientos mil pesos colombianos en dispositivos inteligentes. Además, el 12% prefiere gastar más de 7 millones, y el 20% prefiere gastar entre un millón quinientos mil y 3 millones. Por otro lado, el 12% opta por no gastar en dispositivos inteligentes, y el 4% restante opta por gastar cuatrocientos cincuenta mil pesos colombianos. Estos datos demuestran que la mayoría de estudiantes de ingeniería invierten en un buen dispositivo inteligente que les acompañe en sus carreras.
 
-***PREGUNTA 8***
+# PREGUNTA 8.
+
+**Por cada 10 trabajos, proyectos o investigaciones académicas; ¿En cuántos has empleado la ayuda o información de un asistente deInteligencia Artificial?**
 
 Estadisticos resultantes a partir de la base de datos:
 
@@ -219,7 +306,7 @@ frec.rel8
 
 ```{r}
 bar <- ggplot(Base_de_Datos_Encuesta_IA, aes(x = H )) +
-  geom_bar(stat="count",fill="cyan",color='black')+
+  geom_bar(stat="count",fill="gold",color='black')+
   cowplot::theme_cowplot()+
   geom_text(aes(label=..count..), stat='count', 
             position=position_dodge(0.9), 
@@ -231,9 +318,11 @@ bar <- ggplot(Base_de_Datos_Encuesta_IA, aes(x = H )) +
 bar
 ```
 
-**Conclusion:** Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+**Conclusion:** Basándonos en los datos, se puede inferir que el 52% de los encuestados prefiere emplear un asistente de Inteligencia Artificial para 1 a 3 trabajos, mientras que el 24% de las personas prefiere utilizarlo para 4 a 6 trabajos. El porcentaje restante lo destina a 7 a 10 trabajos. En resumen, aunque los estudiantes de ingeniería hacen uso de estas herramientas, prefieren llevar a cabo la mayoría de sus trabajos por sí mismos.
 
-***PREGUNTA 9***
+# PREGUNTA 9.
+
+**¿Cuántas veces has participado en espacios de uso y desarrollo de la Inteligencia Artificial organizados y otorgados por la Universidad?**
 
 Estadisticos resultantes a partir de la base de datos:
 
@@ -271,12 +360,16 @@ bar <- ggplot(Base_de_Datos_Encuesta_IA, aes(x = I )) +
 bar
 ```
 
-**Conclusion:** Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+**Conclusion:** Según los datos de la encuesta, podemos deducir que el 88% de los encuestados nunca ha participado en espacios de uso y desarrollo de la Inteligencia Artificial organizados y ofrecidos por la Universidad, mientras que el resto ha indicado haber participado entre una y dos ocasiones. Esto sugiere que los estudiantes pueden no haberse sentido atraídos por estas charlas, ya sea por falta de tiempo o por estar interesados en otros campos.
 
-***PREGUNTA 10*** Estadisticos resultantes a partir de la base de datos:
+# PREGUNTA 10.
+
+**En promedio, por cada 7 profesores que te acompañan durante 1 semestre, ¿Cuántos han incentivado y aceptado el uso de la IA como método de apoyo complementario a lo largo de tu carrera?**
+
+Estadisticos resultantes a partir de la base de datos:
 
 ```{r,warning = FALSE, message = FALSE}
-summary(Base_de_Datos_Encuesta_IA$I)
+summary(Base_de_Datos_Encuesta_IA$J)
 ```
 
 Tabla de Frecuencias Absolutas:
@@ -297,9 +390,11 @@ frec.rel10
 
 ```{r}
 ggplot(Base_de_Datos_Encuesta_IA, aes(x = J)) + 
-  geom_histogram(color = "black", fill = "green", 
+  geom_histogram(color = "black", fill = "lightgreen", 
                  bins = 7)+
   xlab("Cantidad de Profesores / semestre")+
   ylab("Frecuencia")+
   ggtitle("Incentivo en el uso de IA")
 ```
+
+**Conclusion:** Basándonos en los datos de la encuesta, podemos inferir que el 8% de los encuestados se han sentido incentivados por los profesores, mientras que el 68% siente que los profesores no aceptan del todo el uso de la IA como método de apoyo complementario. El porcentaje restante, es decir el 24%, se encuentra en un punto intermedio. Esto indica que todavía hay personas que necesitan informarse más sobre el uso de inteligencias artificiales.
