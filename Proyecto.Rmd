@@ -25,6 +25,7 @@ library(dplyr)
 library(cowplot)
 library(ggplot2)
 library(stringr)
+library(gt)
 
 Base_de_Datos_Encuesta_IA <- read_excel("Base de Datos Encuesta IA.xlsx")
 View(Base_de_Datos_Encuesta_IA)
@@ -73,10 +74,36 @@ crear_grafico_barras <- function(Base_de_Datos_Encuesta_IA, variable) {
 
 ```
 
+```{r}
+imprimir_tabla_frecuencia <- function(data, columna, titulo = NULL) {
+  # Calcular frecuencia absoluta y relativa
+  frec_abs <- table(data[[columna]])
+  frec_rel <- prop.table(frec_abs)
+
+  # Crear dataframe con los resultados
+  tabla_frecuencia <- data.frame(
+    Valor = names(frec_abs),
+    Frecuencia_Absoluta = as.vector(frec_abs),
+    Frecuencia_Relativa = as.vector(frec_rel)
+  )
+
+  # Crear el objeto de tabla con gt()
+  tabla_gt <- gt(tabla_frecuencia) %>%
+    tab_header(
+      title = titulo
+    ) %>%
+    tab_spanner(label = "Frecuencia", columns = c(Frecuencia_Absoluta, Frecuencia_Relativa))
+
+  # Imprimir la tabla
+  print(tabla_gt)
+}
+```
+
 Carrera estudiada por la poblacion encuestada:
 
 
 ```{r}
+imprimir_tabla_frecuencia(Base_de_Datos_Encuesta_IA, "carrera", "carrera")
 crear_pastel(Base_de_Datos_Encuesta_IA, carrera)
 crear_grafico_barras(Base_de_Datos_Encuesta_IA, carrera)
 ```
@@ -133,7 +160,7 @@ crear_grafico_barras(Base_de_Datos_Encuesta_IA, D)
 
 En el análisis de esta pregunta, se ha optado por clasificar las respuestas en tres categorías: "siempre" para aquellos que respondieron de 0 a 2, "medianamente" para los que respondieron de 3 a 7, y "nunca" para aquellos que respondieron de 8 a 10. Los resultados indican que el 12% de los encuestados emplea herramientas de inteligencia artificial como proveedores de datos para su formación profesional sin revisar la referencia o fuente de su afirmación, evidenciando una cierta confianza en la información proporcionada por estas herramientas. En contraste, el 68% de los participantes se encuentra en la categoría de respuesta "medianamente", lo que sugiere que la mayoría de los encuestados adopta una postura intermedia en términos de confianza hacia las herramientas de IA como fuentes de datos para su formación profesional. Este grupo parece estar dispuesto a utilizar dichas herramientas, pero con cierto grado de cautela y posiblemente validación de las referencias. Por último, el 20% de los encuestados se encuentra en la categoría "nunca", indicando que no confían en utilizar herramientas de IA como proveedores de datos para su formación profesional sin revisar la referencia o fuente de su afirmación. Este segmento muestra una preferencia por fuentes más tradicionales o rigurosas al buscar información relacionada con su formación.
 
-E ¿Qué tan alto consideras el porcentaje de acierto y confiabilidad atribuído a la Inteligencia Artificial para el diseño y solución de problemas en ingeniería? 
+
 
 # PREGUNTA 5.
 
