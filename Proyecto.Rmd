@@ -105,6 +105,7 @@ crear_pastel(Base_de_Datos_Encuesta_IA, B)
 crear_grafico_barras(Base_de_Datos_Encuesta_IA, B)
 
 ```
+
 La información revela que la mayoría de las personas recurren a ChatGPT como su principal asistente de búsqueda guiado por inteligencia artificial, siendo estos el 84% de los encuestados quienes eligen esta opción. Asimismo, se destaca que un 8% de los participantes prefieren emplear Bing Copilot como su principal asistente, indicando una presencia notable aunque menor en comparación con ChatGPT. Además, se identifica que otro 8% de los encuestados opta por otras Inteligencias Artificiales como Aria o Bard como sus principales ayudantes de búsqueda. Esta diversificación en la elección de asistentes sugiere que la competencia entre los distintos asistentes de inteligencia artificial.
 
 
@@ -116,6 +117,7 @@ La información revela que la mayoría de las personas recurren a ChatGPT como s
 crear_pastel(Base_de_Datos_Encuesta_IA, C)
 crear_grafico_barras(Base_de_Datos_Encuesta_IA, C)
 ```
+
 La información recopilada revela que el 68% de los participantes en la encuesta utiliza la inteligencia artificial (IA) como herramienta para comprender conceptos teóricos. Adicionalmente, un 12% de los encuestados emplea la IA en el proceso de diseño de proyectos, lo que indica una aplicación práctica de esta tecnología en el ámbito creativo y de desarrollo. Otro 12% de los participantes utiliza la IA para programar, evidenciando la versatilidad de estas herramientas en el ámbito de la programación y desarrollo de software. Finalmente, un 8% de los encuestados emplea la inteligencia artificial específicamente para actividades matemáticas y cálculos. 
 
 
