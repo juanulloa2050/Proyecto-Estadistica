@@ -375,4 +375,4 @@ ggplot(Base_de_Datos_Encuesta_IA, aes(x = J)) +
   ggtitle("Incentivo en el uso de IA")
 ```
 
-**Conclusion:** Basándonos en los datos de la encuesta, podemos inferir que el 8% de los encuestados se han sentido incentivados por los profesores, mientras que el 68% siente que los profesores no aceptan del todo el uso de la IA como método de apoyo complementario. El porcentaje restante, es decir el 24%, se encuentra en un punto intermedio. Esto indica que todavía hay personas que necesitan informarse más sobre el uso de inteligencias artificiales.
+**Conclusion:** Basándonos en los datos de la encuesta, podemos inferir que el 8% de los encuestados se han sentido incentivados por los profesores, mientras que el 68% siente que los profesores no aceptan del todo el uso de la IA como método de apoyo complementario. El porcentaje restante, es decir el 24%, se encuentra en un punto intermedio. Esto indica que 2 de cada 7 profesores han demostrado su apoyo hacia el uso de las inteligencias artificiales en sus clases.
