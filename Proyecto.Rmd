@@ -50,10 +50,11 @@ crear_pastel <- function(Base_de_Datos_Encuesta_IA, variable) {
               position = position_stack(vjust = 0.5),
               color = "white", size = 4,
               angle = pastel$midangle) +
-    guides(fill = guide_legend(title = "Categorías")) +
+    guides(fill = guide_legend(title = "Categorias")) +
     coord_polar(theta = "y") + 
     theme_void() +
-    theme(legend.position = "right")
+    theme(legend.position = "right") +
+    labs(title = "Gráfico de Pastel")
   
   return(pastel_plot)
 }
@@ -64,6 +65,7 @@ crear_grafico_barras <- function(Base_de_Datos_Encuesta_IA, variable) {
   
   bar <- ggplot(Base_de_Datos_Encuesta_IA, aes(x = {{ variable }})) +
     geom_bar(stat="count", fill= "#E066FF", color='black') +
+    labs(title = "Diagrama de Barras") +
     theme_cowplot() +
     ylab("Frecuencia") +
     theme(axis.text.x = element_text(vjust = 1, hjust = 0.5)) +
@@ -74,36 +76,12 @@ crear_grafico_barras <- function(Base_de_Datos_Encuesta_IA, variable) {
 
 ```
 
-```{r}
-imprimir_tabla_frecuencia <- function(data, columna, titulo = NULL) {
-  # Calcular frecuencia absoluta y relativa
-  frec_abs <- table(data[[columna]])
-  frec_rel <- prop.table(frec_abs)
 
-  # Crear dataframe con los resultados
-  tabla_frecuencia <- data.frame(
-    Valor = names(frec_abs),
-    Frecuencia_Absoluta = as.vector(frec_abs),
-    Frecuencia_Relativa = as.vector(frec_rel)
-  )
-
-  # Crear el objeto de tabla con gt()
-  tabla_gt <- gt(tabla_frecuencia) %>%
-    tab_header(
-      title = titulo
-    ) %>%
-    tab_spanner(label = "Frecuencia", columns = c(Frecuencia_Absoluta, Frecuencia_Relativa))
-
-  # Imprimir la tabla
-  print(tabla_gt)
-}
-```
 
 Carrera estudiada por la poblacion encuestada:
 
 
 ```{r}
-imprimir_tabla_frecuencia(Base_de_Datos_Encuesta_IA, "carrera", "carrera")
 crear_pastel(Base_de_Datos_Encuesta_IA, carrera)
 crear_grafico_barras(Base_de_Datos_Encuesta_IA, carrera)
 ```
