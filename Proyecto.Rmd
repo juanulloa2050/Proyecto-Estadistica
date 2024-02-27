@@ -5,6 +5,11 @@ date: "2024-02-19"
 output: html_document
 ---
 
+<style>
+body {
+text-align: justify}
+</style>
+
 **Objetivo:**
 
 Evaluar las implicaciones a nivel académico y formativo de las herramientas de Inteligencia artificial en los estudiantes de ingeniería, a raíz de la ética y buen manejo de la tecnología como alternativas de solución que respalden los conocimientos y habilidades básicas previamente desarrolladas durante el crecimiento profesional. Con un posterior análisis de los comportamientos y adaptaciones tanto positivas cómo negativas que se adquieren tras la implementación de dichos recursos en el sistema educativo (universidad), así como en la metodología personal a la hora de producir y ejercer el pensamiento crítico en busca de mayor eficiencia y rapidez.
@@ -80,6 +85,8 @@ crear_grafico_barras <- function(Base_de_Datos_Encuesta_IA, variable) {
 
 ```
 
+
+**A continuación se preseta la información general de los estudiantes de ingeniería encuestados.**
 ```{r}
 crear_pastel(Base_de_Datos_Encuesta_IA, carrera)
 crear_grafico_barras(Base_de_Datos_Encuesta_IA, carrera)
@@ -87,12 +94,20 @@ crear_grafico_barras(Base_de_Datos_Encuesta_IA, carrera)
 
 # PREGUNTA 1.
 
+**¿Qué tan familiarizado estas con la inteligencia artificial? **
+
+
+
 ```{r}
 crear_pastel(Base_de_Datos_Encuesta_IA, A)
 crear_grafico_barras(Base_de_Datos_Encuesta_IA, A)
+
 ```
 
 # PREGUNTA 2.
+
+**¿Cuál es el ayudante de búsqueda guiado por inteligencia artificial de tu preferencia?**
+
 
 ```{r}
 
